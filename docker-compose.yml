@@ -1,0 +1,16 @@
+version: "3.9"
+
+services:
+  ip2route53:
+    build: .
+    container_name: ip2route53
+    restart: unless-stopped
+    security_opt:
+      - no-new-privileges:true
+    environment:
+      - AWS_ACCESS_KEY_ID=$AWS_ACCESS_KEY_ID
+      - AWS_SECRET_ACCESS_KEY=$AWS_SECRET_ACCESS_KEY
+      - AWS_DEFAULT_REGION=$AWS_DEFAULT_REGION
+      - HOSTED_ZONE_ID=$HOSTED_ZONE_ID
+      - DOMAIN_NAME=$DOMAIN_NAME
+    command: '/bin/sh -c "while sleep $UPDATE_INTERVAL; do python /app/ip2route53.py; done"'
