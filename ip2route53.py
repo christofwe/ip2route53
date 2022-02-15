@@ -42,7 +42,7 @@ try:
     }
   )
 
-  print(f"{timestamp} HTTPStatusCode: {response['ResponseMetadata']['HTTPStatusCode']} Status: {response['ChangeInfo']['Status']}")
+  print(f"{timestamp} HTTPStatusCode: {response['ResponseMetadata']['HTTPStatusCode']} Status: {response['ChangeInfo']['Status']} Ip: {external_ip}")
 
 except ClientError as client_error:
   print(f"{timestamp} ClientError: {client_error}")
