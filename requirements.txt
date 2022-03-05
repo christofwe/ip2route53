@@ -1,2 +1,4 @@
+influxdb-client
+pytz
 boto3
 requests
